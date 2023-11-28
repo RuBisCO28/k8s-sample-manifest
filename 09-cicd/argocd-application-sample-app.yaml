@@ -8,8 +8,8 @@ metadata:
 spec:
   project: test
   source:
-    repoURL: https://github.com/nakamasato/kubernetes-basics.git # Forkしている場合はnakamasatoを自分のGithubアカウントに変更してください
-    targetRevision: v2.0-rc
+    repoURL: https://github.com/RuBisCO28/k8s-sample-manifest.git
+    targetRevision: main
     path: 09-cicd/sample-app-manifests
   destination:
     server: https://kubernetes.default.svc
