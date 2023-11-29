@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/RuBisCO28/k8s-sample-manifest.git
     targetRevision: main
-    path: 10-kustomize/base
+    path: 10-kustomize/overlays/dev
   destination:
     server: https://kubernetes.default.svc
     namespace: default

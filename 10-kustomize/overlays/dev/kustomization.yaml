@@ -1,0 +1,15 @@
+resources:
+  - ../../base
+namespace: default
+namePrefix: dev-
+commonLabels:
+  app: dev
+replicas:
+- name: dev-nginx
+  count: 2
+images:
+  - name: nginx
+    newName: nginx
+    newTag: 1.21-alpine
+patchesStrategicMerge:
+  - deployment.yaml
