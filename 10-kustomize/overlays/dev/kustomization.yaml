@@ -6,3 +6,11 @@ commonLabels:
   app: dev
 resources:
   - ../../base
+patches:
+  - target:
+      kind: Deployment
+      name: sample-app
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/image
+        value: ghcr.io/rubisco28/k8s-sample:pr-1
