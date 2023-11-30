@@ -13,4 +13,4 @@ patches:
     patch: |-
       - op: replace
         path: /spec/template/spec/containers/0/image
-        value: ghcr.io/rubisco28/k8s-sample:pr-1
+        value: ghcr.io/rubisco28/k8s-sample:pr-3
