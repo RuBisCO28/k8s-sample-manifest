@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: sample-backend-app
+  name: sample-backend-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-backend-app
+      tier: backend
+      track: stable
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: sample-backend-app
+        tier: backend
+        track: stable
+    spec:
+      containers:
+        - image: ghcr.io/rubisco28/k8s-sample-backend-app:feature-add_github_actions_flow
+          name: sample-backend-app
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
