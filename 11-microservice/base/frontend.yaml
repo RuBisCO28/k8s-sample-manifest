@@ -20,7 +20,7 @@ spec:
         track: stable
     spec:
       containers:
-      - image: ghcr.io/rubisco28/k8s-sample-frontend-app:feature-build_and_push_image
+      - image: ghcr.io/rubisco28/k8s-sample-frontend-nuxt2-app:fix-change_to_dist
         name: sample-frontend-app
         ports:
           - containerPort: 80
