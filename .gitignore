@@ -1,1 +1,3 @@
 .DS_Store
+11-microservice/cert.pem
+11-microservice/base/secret.yaml
