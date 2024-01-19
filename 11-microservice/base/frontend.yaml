@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: sample-frontend-app
+  name: sample-frontend-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-frontend-app
+      tier: frontend
+      track: stable
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: sample-frontend-app
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+      - image: ghcr.io/rubisco28/k8s-sample-frontend-app:feature-build_and_push_image
+        name: sample-frontend-app
+        ports:
+          - containerPort: 80
+        lifecycle:
+          preStop:
+            exec:
+              command: ["/usr/sbin/nginx","-s","quit"]

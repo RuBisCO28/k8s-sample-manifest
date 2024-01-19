@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: sample-backend-app
+  name: sample-backend-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-backend-app
+      tier: backend
+      track: stable
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: sample-backend-app
+        tier: backend
+        track: stable
+    spec:
+      containers:
+        - image: ghcr.io/rubisco28/k8s-sample-backend-app:sha-b99d147
+          name: sample-backend-app
+          envFrom:
+            - configMapRef:
+                name: sample-backend-app-configmap
+            - secretRef:
+                name: sample-backend-app-sealed-secret
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
